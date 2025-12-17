@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selamat Ulang Tahun 🎉</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  overflow: hidden;
+  padding: 16px;
+}
+
+/* CARD */
+.card {
+  position: absolute;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 24px;
+  border-radius: 20px;
+  text-align: center;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  animation: fadeIn 0.4s ease;
+  display: none;
+}
+
+.card.active {
+  display: block;
+}
+
+/* TEXT */
+h1 {
+  margin-top: 0;
+  font-size: clamp(1.3rem, 4vw, 2rem);
+  color: #ff5e78;
+  line-height: 1.4;
+}
+
+/* BUTTON */
+button {
+  margin-top: 20px;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 25px;
+  background: #ff5e78;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* IMAGE */
+.card img {
+  width: 100%;
+  max-height: 60vh;
+  object-fit: contain;
+  border-radius: 18px;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* BALLOON */
+.balloon {
+  position: absolute;
+  z-index: 1;
+  bottom: -120px;
+  width: 50px;
+  height: 70px;
+  border-radius: 50%;
+  animation: floatUp 8s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes floatUp {
+  to { transform: translateY(-130vh); }
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  button {
+    width: 100%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card active">
+  <h1>Hii, apa kabar? 👋</h1>
+  <button onclick="next()">Lanjut</button>
+</div>
+
+<div class="card">
+  <h1>🎉 Selamat Ulang Tahun yang ke-15 yaaa 🎂</h1>
+  <button onclick="next()">Lanjut</button>
+</div>
+
+<!-- CARD HADIAH -->
+<div class="card">
+  <h1>Aku ada hadiah buat kamu 🎁</h1>
+  <button onclick="next()">Buka Hadiah</button>
+</div>
+
+<!-- CARD GAMBAR HADIAH -->
+<div class="card">
+  <img src="kue.png" alt="Kue Ulang Tahun">
+  <button onclick="next()">Lanjut</button>
+</div>
+
+<!-- CERITA LANJUT -->
+<div class="card"><h1>Maaf yahh baru ngucapin 😭</h1><button onclick="next()">Lanjut</button></div>
+<div class="card"><h1>gua ga lupa kok</h1><button onclick="next()">Lanjut</button></div>
+<div class="card"><h1>bahkan dipagi sebelum lu ultah gua udh mikirin itu seharian buat ngucapin juga</h1><button onclick="next()">Lanjut</button></div>
+<div class="card"><h1>tapi dihari itu juga masalah dateng barengan 😮‍💨</h1><button onclick="next()">Lanjut</button></div>
+<div class="card"><h1>ternyata masalah bocah di tempat pkl gua bikin kita terancam dikeluarin</h1><button onclick="next()">Lanjut</button></div>
+<div class="card"><h1>dan disitu orang sekolah dateng marahin kita semua</h1><button onclick="next()">Lanjut</button></div>
+<div class="card"><h1>setelah itu semuanya merasa bersalah termasuk gua</h1><button onclick="next()">Lanjut</button></div>
+<div class="card"><h1>gua gatau harus ngapain waktu itu</h1><button onclick="next()">Lanjut</button></div>
+<div class="card"><h1>karena pas pulang udah cape pikiran dan fisik</h1><button onclick="next()">Lanjut</button></div>
+<div class="card"><h1>soalnya dihukum di tempat pkl juga</h1><button onclick="next()">Lanjut</button></div>
+<div class="card"><h1>jadi gua cuma bisa diem aja</h1><button onclick="next()">Lanjut</button></div>
+<div class="card"><h1>ya gitu deh capek tau</h1><button onclick="next()">Lanjut</button></div>
+<div class="card"><h1>gua tau mungkin lu ga peduli cerita ini</h1><button onclick="next()">Lanjut</button></div>
+<div class="card"><h1>dan mungkin gua bukan apa apa di antara semua yang ngucapin lu kemarin</h1><button onclick="next()">Lanjut</button></div>
+<div class="card"><h1>tapi gua tetap mau minta maaf</h1><button onclick="next()">Lanjut</button></div>
+<div class="card"><h1>jadii...</h1><button onclick="next()">Lanjut</button></div>
+<div class="card"><h1>Maafin yahh</h1><button onclick="next()">Lanjut</button></div>
+<div class="card"><h1>oh iya satu lagii..</h1><button onclick="next()">Lanjut</button></div>
+<div class="card"><h1>pliss jangan kasih tau siapa siapa klo gua bikin ini buat lu</h1><button onclick="next()">Lanjut</button></div>
+<div class="card"><h1>makasih masih mau baca sampe sini 🤍</h1></div>
+
+<script>
+let index = 0;
+const cards = document.querySelectorAll('.card');
+
+function next() {
+  cards[index].classList.remove('active');
+  index++;
+  if (index < cards.length) {
+    cards[index].classList.add('active');
+  }
+}
+
+// BALLOON
+const colors = ['#ff5e78','#ffd56b','#7afcff','#b28dff'];
+setInterval(() => {
+  const b = document.createElement('div');
+  b.className = 'balloon';
+  b.style.left = Math.random() * 100 + 'vw';
+  b.style.background = colors[Math.floor(Math.random() * colors.length)];
+  document.body.appendChild(b);
+  setTimeout(() => b.remove(), 8000);
+}, 800);
+</script>
+
+</body>
+</html>
