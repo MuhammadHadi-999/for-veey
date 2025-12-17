@@ -30,14 +30,8 @@ body {
   padding: 24px;
   border-radius: 20px;
   text-align: center;
-
   width: 100%;
   max-width: 420px;
-
-  /* 🔥 KUNCI BIAR GA KEPANJANGAN DI HP */
-  max-height: 75vh;
-  overflow-y: auto;
-
   box-shadow: 0 15px 40px rgba(0,0,0,0.2);
   animation: fadeIn 0.4s ease;
   display: none;
@@ -45,15 +39,6 @@ body {
 
 .card.active {
   display: block;
-}
-
-/* SCROLLBAR HALUS */
-.card::-webkit-scrollbar {
-  width: 6px;
-}
-.card::-webkit-scrollbar-thumb {
-  background: #ff9a9e;
-  border-radius: 10px;
 }
 
 /* TEXT */
@@ -83,7 +68,7 @@ button:active {
 /* IMAGE */
 .card img {
   width: 100%;
-  max-height: 50vh;
+  max-height: 60vh;
   object-fit: contain;
   border-radius: 18px;
 }
@@ -112,15 +97,6 @@ button:active {
 
 /* MOBILE */
 @media (max-width: 480px) {
-  .card {
-    padding: 20px;
-    max-height: 70vh;
-  }
-
-  h1 {
-    font-size: 1.25rem;
-  }
-
   button {
     width: 100%;
   }
@@ -129,6 +105,15 @@ button:active {
 </head>
 
 <body>
+
+<!-- AUDIO -->
+<audio id="bgm" loop>
+  <source src="bgm.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="click">
+  <source src="click.mp3" type="audio/mpeg">
+</audio>
 
 <div class="card active">
   <h1>Hii, apa kabar? 👋</h1>
@@ -152,30 +137,38 @@ button:active {
 
 <div class="card"><h1>Maaf yahh baru ngucapin 😭</h1><button onclick="next()">Lanjut</button></div>
 <div class="card"><h1>gua ga lupa kok</h1><button onclick="next()">Lanjut</button></div>
-<div class="card"><h1>bahkan dipagi sebelum lu ultah gua udh mikirin itu seharian buat ngucapin juga</h1><button onclick="next()">Lanjut</button></div>
+<div class="card"><h1>bahkan dipagi sebelum lu ultah gua udh mikirin itu seharian</h1><button onclick="next()">Lanjut</button></div>
 <div class="card"><h1>tapi dihari itu juga masalah dateng barengan 😮‍💨</h1><button onclick="next()">Lanjut</button></div>
-<div class="card"><h1>ternyata masalah bocah di tempat pkl gua bikin kita terancam dikeluarin</h1><button onclick="next()">Lanjut</button></div>
-<div class="card"><h1>dan disitu orang sekolah dateng marahin kita semua</h1><button onclick="next()">Lanjut</button></div>
-<div class="card"><h1>setelah itu semuanya merasa bersalah termasuk gua</h1><button onclick="next()">Lanjut</button></div>
+<div class="card"><h1>ternyata masalah bocah di tempat pkl gua bikin kita terancam</h1><button onclick="next()">Lanjut</button></div>
+<div class="card"><h1>dan disitu orang sekolah dateng marahin kita</h1><button onclick="next()">Lanjut</button></div>
+<div class="card"><h1>setelah itu semuanya merasa bersalah</h1><button onclick="next()">Lanjut</button></div>
 <div class="card"><h1>gua gatau harus ngapain waktu itu</h1><button onclick="next()">Lanjut</button></div>
-<div class="card"><h1>karena pas pulang udah cape pikiran dan fisik</h1><button onclick="next()">Lanjut</button></div>
-<div class="card"><h1>soalnya dihukum di tempat pkl juga</h1><button onclick="next()">Lanjut</button></div>
+<div class="card"><h1>karena pas pulang udah cape fisik & pikiran</h1><button onclick="next()">Lanjut</button></div>
 <div class="card"><h1>jadi gua cuma bisa diem aja</h1><button onclick="next()">Lanjut</button></div>
 <div class="card"><h1>ya gitu deh capek tau</h1><button onclick="next()">Lanjut</button></div>
-<div class="card"><h1>gua tau mungkin lu ga peduli cerita ini</h1><button onclick="next()">Lanjut</button></div>
-<div class="card"><h1>dan mungkin gua bukan apa apa di antara semua yang ngucapin lu kemarin</h1><button onclick="next()">Lanjut</button></div>
 <div class="card"><h1>tapi gua tetap mau minta maaf</h1><button onclick="next()">Lanjut</button></div>
-<div class="card"><h1>jadii...</h1><button onclick="next()">Lanjut</button></div>
 <div class="card"><h1>Maafin yahh</h1><button onclick="next()">Lanjut</button></div>
-<div class="card"><h1>oh iya satu lagii..</h1><button onclick="next()">Lanjut</button></div>
-<div class="card"><h1>pliss jangan kasih tau siapa siapa klo gua bikin ini buat lu</h1><button onclick="next()">Lanjut</button></div>
 <div class="card"><h1>makasih masih mau baca sampe sini 🤍</h1></div>
 
 <script>
 let index = 0;
 const cards = document.querySelectorAll('.card');
+const bgm = document.getElementById('bgm');
+const click = document.getElementById('click');
+let started = false;
 
 function next() {
+  // sound klik
+  click.currentTime = 0;
+  click.play().catch(()=>{});
+
+  // mulai musik saat klik pertama
+  if (!started) {
+    bgm.volume = 0.4;
+    bgm.play().catch(()=>{});
+    started = true;
+  }
+
   cards[index].classList.remove('active');
   index++;
   if (index < cards.length) {
