@@ -30,8 +30,14 @@ body {
   padding: 24px;
   border-radius: 20px;
   text-align: center;
+
   width: 100%;
   max-width: 420px;
+
+  /* 🔥 KUNCI BIAR GA KEPANJANGAN DI HP */
+  max-height: 75vh;
+  overflow-y: auto;
+
   box-shadow: 0 15px 40px rgba(0,0,0,0.2);
   animation: fadeIn 0.4s ease;
   display: none;
@@ -39,6 +45,15 @@ body {
 
 .card.active {
   display: block;
+}
+
+/* SCROLLBAR HALUS */
+.card::-webkit-scrollbar {
+  width: 6px;
+}
+.card::-webkit-scrollbar-thumb {
+  background: #ff9a9e;
+  border-radius: 10px;
 }
 
 /* TEXT */
@@ -68,7 +83,7 @@ button:active {
 /* IMAGE */
 .card img {
   width: 100%;
-  max-height: 60vh;
+  max-height: 50vh;
   object-fit: contain;
   border-radius: 18px;
 }
@@ -97,6 +112,15 @@ button:active {
 
 /* MOBILE */
 @media (max-width: 480px) {
+  .card {
+    padding: 20px;
+    max-height: 70vh;
+  }
+
+  h1 {
+    font-size: 1.25rem;
+  }
+
   button {
     width: 100%;
   }
@@ -116,19 +140,16 @@ button:active {
   <button onclick="next()">Lanjut</button>
 </div>
 
-<!-- CARD HADIAH -->
 <div class="card">
   <h1>Aku ada hadiah buat kamu 🎁</h1>
   <button onclick="next()">Buka Hadiah</button>
 </div>
 
-<!-- CARD GAMBAR HADIAH -->
 <div class="card">
   <img src="kue.png" alt="Kue Ulang Tahun">
   <button onclick="next()">Lanjut</button>
 </div>
 
-<!-- CERITA LANJUT -->
 <div class="card"><h1>Maaf yahh baru ngucapin 😭</h1><button onclick="next()">Lanjut</button></div>
 <div class="card"><h1>gua ga lupa kok</h1><button onclick="next()">Lanjut</button></div>
 <div class="card"><h1>bahkan dipagi sebelum lu ultah gua udh mikirin itu seharian buat ngucapin juga</h1><button onclick="next()">Lanjut</button></div>
